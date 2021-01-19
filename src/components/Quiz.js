@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Question from './Question'
 import Answers from './Answers'
 import QuestName from './QuestName'
+import './Quiz.css'
 
 class Quiz extends Component {
 
@@ -68,13 +69,24 @@ class Quiz extends Component {
         }
     }
 
+    nextStep = (step) => {
+        this.setState({
+            step: step + 1,
+            correctAnswer: 0,
+            clickedAnswer: 0
+        })
+    }
+
     render() {
-        let { questions, step, options, correctAnswer, clickedAnswer, gotName } = this.state;
+        let { questions, step, options, correctAnswer, clickedAnswer, gotName, score, gestName } = this.state;
         return(
             <div> 
-                { gotName ?
-                   (<div>
-                   < Question 
+                { gotName 
+                    ?
+                   (<div> 
+                       { step <= Object.keys(questions).length ? (<div>
+
+                        < Question 
                    questions={questions[step]} 
                    />
                    <Answers 
@@ -83,6 +95,17 @@ class Quiz extends Component {
                    correctAnswer={correctAnswer}
                    clickedAnswer={clickedAnswer}
                    />
+                   <button 
+                   className={clickedAnswer ? 'normal' : 'hidden'}
+                   onClick={() => this.nextStep(step)}>
+                       Next question
+                    </button>
+                       </div>) : (<div>
+                       <h1>{gestName}, you have completed the quiz!</h1>
+                            <p>Your score is: {score} of {Object.keys(questions).length}</p>
+                            <p>Thank you!</p>
+                       </div>)}
+                  
                    </div>)
                 :
                     (< QuestName 

@@ -1,12 +1,12 @@
 import React from 'react'
 import './Answers.css'
 
-const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer }) => {
+const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer, step }) => {
 
     return (
         <div>
             {Object.keys(options).map(option => 
-            <ul 
+            <li disabled 
                 className={
                     correctAnswer === option ? 'correct' : 
                     clickedAnswer === option ? 'incorrect' : ''
@@ -14,7 +14,10 @@ const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer }) => {
                 onClick={() => checkAnswer(option)}
                 key={option}>
                 {options[option]}
-            </ul>)}
+            </li>)}
+            <div>
+                { correctAnswer ? 'Correct' : clickedAnswer ? 'Incorrect' : ''}
+            </div>
         </div>
     )
 }
