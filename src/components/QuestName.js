@@ -1,5 +1,5 @@
 import React from 'react'
-import './QuestName.css'
+import './styles/QuestName.css'
 
 const QuestName = ({handleChange, gotName}) => {
     return( 

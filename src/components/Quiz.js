@@ -3,37 +3,51 @@ import React, {Component} from 'react'
 import Question from './Question'
 import Answers from './Answers'
 import QuestName from './QuestName'
-import './Quiz.css'
+import './styles/Quiz.css'
 
 class Quiz extends Component {
 
     state = {
         questions : {
-            1: 'ne shayu cto sprosit?',
-            2: 'capital of great britain',
-            3: 'kto lubit kostya bolshe vseh?'
+            1: 'With over 222 million units sold, what is Apple’s highest-selling iPhone model?',
+            2: 'In which year was the Microsoft XP operating system released?',
+            3: 'What does LG stand for in LG Electronics?',
+            4: 'Originally Amazon only sold which product?',
+            5: 'Which prestigious university did Microsoft founder Bill Gates drop out of?'
         },
         options : {
             1: {
-                1: 'da',
-                2: 'net',
-                3: 'ne znayu'
+                1: 'iPhone 7/7 Plus',
+                2: 'iPhone 6/6 Plus',
+                3: 'iPhone 11 Pro / 11 Pro Max',
             },
             2: {
-                1: 'london',
-                2: 'kyiv',
-                3: 'krakow'
+                1: '2001',
+                2: '1997',
+                3: '2004',
             },
             3: {
-                1: 'ya',
-                2: 'kosty',
-                3: 'bomzyi'
+                1: 'Little Girl',
+                2: 'Life is Good',
+                3: 'Lucky-Goldstar',
+            },
+            4: {
+                1: 'Books',
+                2: 'Snacks',
+                3: 'Electronics',
+            },
+            5: {
+                1: 'Stanford',
+                2: 'Harvard',
+                3: 'Oxford'
             }
         },
         correctAnswers: {
-            1: '1',
-            2: '2',
-            3: '1'
+            1: '2',
+            2: '1',
+            3: '3',
+            4: '1',
+            5: '2'
         },
         correctAnswer: 0,
         clickedAnswer: 0,

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Answers.css'
+import './styles/Answers.css'
 
 const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer, step }) => {
 
