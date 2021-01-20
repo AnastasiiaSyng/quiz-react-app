@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {Component} from 'react'
 import Question from './Question'
 import Answers from './Answers'
@@ -80,29 +81,31 @@ class Quiz extends Component {
     render() {
         let { questions, step, options, correctAnswer, clickedAnswer, gotName, score, gestName } = this.state;
         return(
-            <div> 
+            <div className='quiz'> 
                 { gotName 
                     ?
                    (<div> 
-                       { step <= Object.keys(questions).length ? (<div>
-
-                        < Question 
-                   questions={questions[step]} 
-                   />
-                   <Answers 
-                   checkAnswer={this.checkAnswer} 
-                   options={options[step]} 
-                   correctAnswer={correctAnswer}
-                   clickedAnswer={clickedAnswer}
-                   />
-                   <button 
-                   className={clickedAnswer ? 'normal' : 'hidden'}
-                   onClick={() => this.nextStep(step)}>
-                       Next question
-                    </button>
-                       </div>) : (<div>
-                       <h1>{gestName}, you have completed the quiz!</h1>
-                            <p>Your score is: {score} of {Object.keys(questions).length}</p>
+                       { step <= Object.keys(questions).length ? 
+                       (<div>
+                            < Question 
+                            questions={questions[step]} 
+                            />
+                            <Answers 
+                            checkAnswer={this.checkAnswer} 
+                            options={options[step]} 
+                            correctAnswer={correctAnswer}
+                            clickedAnswer={clickedAnswer}
+                            />
+                            <a
+                            className={clickedAnswer ? 'waves-effect waves-light btn grey darken-3' : 'hidden'}
+                            onClick={() => this.nextStep(step)}
+                            >Next question
+                            </a>
+                       </div>
+                       ) : (
+                       <div>
+                            <h1>{gestName}, you have completed the quiz!</h1>
+                            <p class="flow-text">Your score is: <b>{score}</b> of {Object.keys(questions).length}</p>
                             <p>Thank you!</p>
                        </div>)}
                   

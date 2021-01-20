@@ -1,8 +1,11 @@
 import React from 'react'
+import './Question.css'
 
 const Question = ({questions}) => {
     return (
-    <p>{questions}</p>
+        <div className='question'>
+            <p class="flow-text">{questions}</p>
+        </div>
     )
 }
 
