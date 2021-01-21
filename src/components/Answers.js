@@ -6,7 +6,7 @@ const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer, step }) =
     return (
         <div>
             <div className={ clickedAnswer ? 'disable' : ''}>
-                <ul class="collection"> 
+                <ul className="collection"> 
                     {Object.keys(options).map(option => 
                     <li 
                         className={
@@ -22,11 +22,11 @@ const Answers = ({ options, checkAnswer, correctAnswer, clickedAnswer, step }) =
                 <div>
                     { correctAnswer 
                     ?  
-                    <p class='green-text lighten-2'>Correct</p> 
+                    <p className='green-text lighten-2'>Correct</p> 
                     : 
                     clickedAnswer 
                     ? 
-                    <p class='red-text lighten-2'>Incorrect</p> 
+                    <p className='red-text lighten-2'>Incorrect</p> 
                     : ''
                     }
                 </div>

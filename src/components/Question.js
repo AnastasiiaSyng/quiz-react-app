@@ -4,7 +4,7 @@ import './styles/Question.css'
 const Question = ({questions}) => {
     return (
         <div className='question'>
-            <p class="flow-text">{questions}</p>
+            <p className="flow-text">{questions}</p>
         </div>
     )
 }
